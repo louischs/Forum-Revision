@@ -27,7 +27,7 @@ if(isset($_POST['user']) and isset($_POST['pwd']))
 		}
 		$answer = $ps->fetch(PDO::FETCH_ASSOC);
 		$_SESSION['userInfos'] = $answer;
-		header('Location:./welcome.php');
+		//header('Location:./welcome.php');
 	}
 }
 ?><!DOCTYPE html>

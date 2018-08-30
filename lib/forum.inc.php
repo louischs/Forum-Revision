@@ -20,8 +20,8 @@ function authenticate($userId, $pwd) {
 		}
 		$answer = $ps->fetch(PDO::FETCH_ASSOC);
 		//Si la réponse de la requete correspond au SHA1, on connecte l'user.
-		if($answer["passwordUser"] == $pwd){
-			return true;
+		if($answer["password"] == $pwd){
+			return true;  
 		}
 		//Sinon on renvoie une erreur.
 	$_SESSION['error'] = "Email ou mot de passe invalide";

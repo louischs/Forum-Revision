@@ -21,9 +21,8 @@ Copyright : Entreprise Ecole CFPT-I © 2018
   <?php 
 	echo "Bienvenue ".$_SESSION['userInfos']['surname']. " " .$_SESSION['userInfos']['name'].", vous etes connecte!!";
 	?>
-  ?>
     <h1>Connexion</h1>
-    <form id="login" action="login.php" method="POST">
+    <form id="news" action=".php" method="POST">
       <table class="tableForm">
         <tr>
           <td class="tdForm"><label for="user">Identifiant : </label></td>
