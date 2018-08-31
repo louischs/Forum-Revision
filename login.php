@@ -14,21 +14,10 @@ require './lib/forum.inc.php';
 if(isset($_POST['user']) and isset($_POST['pwd']))
 {
 	if(authenticate($_POST['user'], $_POST['pwd'])){
-		$bdd = new PDO('mysql:host=127.0.0.1;dbname=forum', 'root', '');
-		$sql = "select name, surname from users where login=:userId LIMIT 1;";
-		$ps = $bdd->prepare($sql);
-		//Execution de la requete
-		try {
-			$ps->bindParam(':userId', $_POST['user'], PDO::PARAM_STR);
-			$isok = $ps->execute();
-		}
-		catch (PDOException $e) {
-			$isok = false;
-		}
-		$answer = $ps->fetch(PDO::FETCH_ASSOC);
-		$_SESSION['userInfos'] = $answer;
-		//header('Location:./welcome.php');
+		$_SESSION['userId'] = $_POST['user'];
+		header('Location:./welcome.php');
 	}
+	
 }
 ?><!DOCTYPE html>
 <html>
