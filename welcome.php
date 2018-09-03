@@ -1,7 +1,7 @@
 <!--
 Auteur : Choisy Louis
 Titre : Forum
-Description : Nous allons créer	un site	d’échange d’information	basique, une sorte	de	petit	forum.
+Description : Fil d'actualité et page principale
 Version : 1.0.0
 Date : 30.08.2018
 Copyright : Entreprise Ecole CFPT-I © 2018
@@ -13,18 +13,24 @@ Copyright : Entreprise Ecole CFPT-I © 2018
     if(isset($_POST['description']) && isset($_POST['title'])){
 		$description = filter_input(INPUT_POST, "description", FILTER_SANITIZE_STRING);
 		$title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_STRING);
-		
 		$verification = validatePost($title, $description, $userInfos['idUser']);
 		if($verification == ""){
-			$_POST = array();
+			unset($_POST['description']);
+            unset($_POST['title']);
 			$description = "";
 			$title = "";
 			echo "Post ajouté!";
-			
 		}
 		else
 			echo $verification. "<br>";
 	}
+    if(isset($_POST['titleModif']) && isset($_POST['descriptionModif'])){
+        $descriptionM = filter_input(INPUT_POST, "descriptionModif", FILTER_SANITIZE_STRING);
+        $titleM = filter_input(INPUT_POST, "titleModif", FILTER_SANITIZE_STRING); 
+        $idPostM = filter_input(INPUT_POST, "idPost", FILTER_VALIDATE_INT); 
+        updatePost($idPostM, $titleM ,$descriptionM);
+        echo "Modif prise en compte<br>";
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -71,6 +77,14 @@ Copyright : Entreprise Ecole CFPT-I © 2018
         echo "<h3>Date de création : ".$post['creationDate']."</h3>";
         echo "<h3>Dernière modification : ".$post['lastEditDate']."</h3>";
 		echo "<p>".$post["description"]."</p><br>";
+        echo '<form id="edit" action="updateNews.php" method="POST">
+                <input type="text" name="idNews" value="'.$post['idNews'].'" hidden>
+                <input type="submit" name="btnSubmit" value="Modifier">
+              </form>';
+        echo '<form id="delete" action="deleteNews.php" method="POST">
+                <input type="text" name="idNews" value="'.$post['idNews'].'" hidden>
+                <input type="submit" name="btnSubmit" value="Supprimer">
+              </form>';
 	}
 	?>
 </body>

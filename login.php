@@ -1,7 +1,7 @@
 <!--
 Auteur : Choisy Louis
 Titre : Forum
-Description : Nous allons créer	un site	d’échange d’information	basique, une sorte	de	petit	forum.
+Description : Fichier de connexion
 Version : 1.0.0
 Date : 30.08.2018
 Copyright : Entreprise Ecole CFPT-I © 2018
