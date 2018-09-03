@@ -1,0 +1,2 @@
+Ou j'en suis: Fini chapitre IV, le site est fonctionnel, il me reste a mettre mon code aux normes, a commenter de marnière adéquate et à rendre le sit plus agréable a la lecture.
+Rien ne m'a réellement posé problème, il a juste fallu que je me remettes dans le "bain". 
